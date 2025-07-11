@@ -20,6 +20,7 @@
 #include <log4cxx/helpers/exception.h>
 #include <log4cxx/helpers/pool.h>
 #include <log4cxx/helpers/bytebuffer.h>
+#include <cstring>
 
 using namespace log4cxx;
 using namespace log4cxx::helpers;
@@ -63,7 +64,7 @@ LogString InputStreamReader::read(Pool& p) {
              throw IOException(stat);
          }
          if (buf.remaining() > 0) {
-             memmove(buf.data(), buf.current(), buf.remaining());
+             std::memmove(buf.data(), buf.current(), buf.remaining());
              buf.limit(buf.remaining());
          } else {
              buf.clear();
