@@ -51,7 +51,7 @@ namespace log4cxx
                   void writeLong(log4cxx_time_t val, Pool& p);
                   void writeProlog(const char* className,
                         int classDescIncrement,
-                        char* bytes,
+                        unsigned char* bytes,
                         size_t len,
                         Pool& p);
                   void writeNull(Pool& p);
@@ -77,15 +77,15 @@ namespace log4cxx
           private:
                   ObjectOutputStream(const ObjectOutputStream&);
                   ObjectOutputStream& operator=(const ObjectOutputStream&);
-                     
+
                   OutputStreamPtr os;
                   log4cxx::helpers::CharsetEncoderPtr utf8Encoder;
                   unsigned int objectHandle;
                   typedef std::map<std::string, unsigned int> ClassDescriptionMap;
                   ClassDescriptionMap* classDescriptions;
           };
-          
-          LOG4CXX_PTR_DEF(ObjectOutputStream);          
+
+          LOG4CXX_PTR_DEF(ObjectOutputStream);
 
         } // namespace helpers
 
